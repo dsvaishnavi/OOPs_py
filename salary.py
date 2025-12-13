@@ -1,43 +1,43 @@
-class Employee:
-    def __init__(self, emp_id, name, dept, salary):
-        self.emp_id = emp_id
-        self.name = name
-        self.dept = dept
+class Salary:
+    def __init__(self,name,id,salary,depart,years):
+        self.name= name
+        self.id = id
         self.salary = salary
-
-    def __str__(self):
-        return f"""
-        Employee Details:
-        -----------------
-        ID      : {self.emp_id}
-        Name    : {self.name}
-        Dept    : {self.dept}
-        Salary  : ₹{self.salary}
-        """
-    # def dept_val(self,amount):
-    #     if self.dept=="IT":
-    #         self.salary+=amount
-    #     else:
-    #         print("dept not match")  
-            
+        self.depart=depart
+        self.years=years
+    
     def increment(self,percent):
-        increment=self.salary * (10 / 100)
-        self.salary+=increment
-        print(percent)
-        
-           
-
-# Taking input from user
-id = input("Enter Employee ID: ")
-name = input("Enter Name: ")
-dept = input("Enter Department: ")
-salary = float(input("Enter Salary: "))
-
-        
+        percent = (self.salary * percent ) //100
+        self.salary += percent
+        print(f"you salary is {self.salary} congratsss!!!")
+                
+    def experienced(self):
+        if self.years <=3:
+            print("you are fresher")
+        elif self.years == 4:
+            print("you r intermediate")
+        else:
+            print("you are pro")
 
 
-emp = Employee(id, name, dept, salary)
-emp.increment(10)
-# emp.dept_val(1000) 
-# Display all details
-print(emp)
+
+
+
+
+
+
+
+name=input("enter your name: ")
+id=int(input("enter employee id: "))
+salary=float(input("enter salary amount: "))
+depart=input("enter your department: ")
+percent = float(input("Enter increment percentage: "))
+years=int(input("enter your experience: "))
+
+x=Salary(name,id,salary,depart,years)
+
+
+x.increment(percent)
+x.experienced()
+
+print(x)
